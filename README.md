@@ -5,9 +5,6 @@ expenses, set category budgets, track recurring subscriptions, and
 generate simple financial reports — all from a terminal menu, backed
 by plain CSV files (no database, no external services).
 
-Built as a Programming-in-Java academic project (VITyarthi "Build Your
-Own Project").
-
 ---
 
 ## 1. Overview
@@ -23,9 +20,6 @@ budget. **SpendWise** brings all three into one lightweight tool:
   any billing cycle and see their true monthly/yearly cost.
 - Generate reports: spending by category, a combined activity feed,
   and an overall monthly financial outlook.
-
-All data is saved to disk automatically as plain CSV files, so it
-survives between runs with no setup required.
 
 ---
 
@@ -78,10 +72,6 @@ survives between runs with no setup required.
 | Interface | Terminal / CLI (`java.util.Scanner`) |
 | Build | Plain `javac` — no Maven/Gradle required |
 | Diagrams | Graphviz + Matplotlib (see `docs/diagrams/`) |
-
-No frameworks, GUI toolkits, databases, or external APIs are used —
-by design, so the whole codebase stays explainable by a 2nd-year
-student in a viva.
 
 ---
 
@@ -147,10 +137,7 @@ SpendWise/
 ├── test-results/                     # manual test log (see below)
 ├── README.md
 └── statement.md
-```
-
-21 source files across 4 packages — well above the minimum module count
-for the course, while every file stays small and single-purpose.
+---
 
 ---
 
