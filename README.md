@@ -196,16 +196,6 @@ cycles, and viewing every report.
 
 ---
 
-## 9. Design Documents
-
-Full design artefacts — problem statement, requirements, architecture,
-workflow, UML (use case / class / sequence), and the CSV storage
-schema — are in [`docs/diagrams/`](docs/diagrams/) and the project
-report PDF. See also [`statement.md`](statement.md) for the concise
-problem statement and scope.
-
----
-
 ## 10. Known Simplifications 
 
 - Amounts are stored as `double`, not `BigDecimal` — acceptable at
