@@ -167,7 +167,7 @@ java -cp bin com.spendwise.Main
 
 **Financial Reports — spending by category & monthly outlook:**
 
-![Reports module](SpendWisedocs/screenshots/Reports_module.png)
+![Reports module](SpendWise/docs/screenshots/Reports_module.png)
 
 ---
 
