@@ -9,6 +9,17 @@ given category until the money is already gone. There is no single,
 lightweight place to see income, expenses, budgets, and recurring
 subscriptions together.
 
+## Scope of the Project
+
+SpendWise is a **console-based personal finance and subscription
+manager** built in core Java. It covers:
+
+- Recording and managing income/expense transactions
+- Setting and monitoring category-wise monthly budgets
+- Tracking recurring subscriptions across different billing cycles
+  and calculating their true monthly/yearly cost
+- Generating financial reports that combine all of the above
+
 ## Target Users
 
 Students, young professionals, or anyone managing personal finances
