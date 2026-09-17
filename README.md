@@ -132,7 +132,6 @@ SpendWise/
 │   ├── budgets.csv
 │   └── subscriptions.csv
 ├── docs/
-│   ├── diagrams/                     # architecture, workflow, UML, schema (.dot source + .png)
 │   └── screenshots/
 ├── test-results/                     # manual test log (see below)
 ├── README.md
