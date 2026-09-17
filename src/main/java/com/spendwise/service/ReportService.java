@@ -15,6 +15,7 @@ import java.util.*;
  * can hold both Transaction and Subscription objects and call
  * getSummaryLine() on each without caring which concrete class it is.
  */
+@SuppressWarnings("unused")
 public class ReportService {
 
     private final TransactionService transactionService;
