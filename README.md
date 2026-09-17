@@ -137,8 +137,7 @@ SpendWise/
 ├── test-results/                     # manual test log (see below)
 ├── README.md
 └── statement.md
----
-
+```
 ---
 
 ## 6. Steps to Install & Run
@@ -208,7 +207,7 @@ problem statement and scope.
 
 ---
 
-## 10. Known Simplifications (by design, for a beginner-friendly scope)
+## 10. Known Simplifications 
 
 - Amounts are stored as `double`, not `BigDecimal` — acceptable at
   this scale, called out as a future enhancement.
