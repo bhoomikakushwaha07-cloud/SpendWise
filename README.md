@@ -75,28 +75,7 @@ budget. **SpendWise** brings all three into one lightweight tool:
 
 ---
 
-## 4. Java Concepts Demonstrated
-
-| Concept | Where |
-|---|---|
-| Abstraction | `FinancialRecord` (abstract class) — declares `getMonthlyImpact()` with no body |
-| Inheritance | `Transaction` and `Subscription` both `extends FinancialRecord` |
-| Interfaces | `Reportable` — implemented by both `Transaction` and `Subscription` |
-| Polymorphism | `ReportService.combinedActivityFeed()` calls `getSummaryLine()` on a mixed `List<Reportable>` without knowing the concrete type |
-| Method overriding | `getMonthlyImpact()` behaves differently in `Transaction` vs `Subscription` |
-| Encapsulation | All model fields are `private`/`protected` with controlled getters/setters |
-| Enums | `TransactionType`, `BillingCycle` |
-| Collections | `ArrayList<Transaction>`, `HashMap<String,Budget>`, `List<Reportable>` |
-| Exception handling | Custom checked exceptions: `InvalidInputException`, `RecordNotFoundException`, `DuplicateIdException` |
-| File I/O | `CSVFileHandler` reads/writes all three `.csv` files with `BufferedReader`/`BufferedWriter` |
-| Searching | Linear search in `TransactionService.search()` / `SubscriptionService.search()` |
-| Sorting | `Comparator` + `List.sort()` in `viewAll()` / `sortByAmountDescending()` |
-| Modular programming | Four packages — `model`, `service`, `storage`, `util` — each with a single responsibility |
-| Composition | `BudgetService` and `ReportService` hold references to other services instead of extending them |
-
----
-
-## 5. Project Structure
+## 4. Project Structure
 
 ```
 SpendWise/
@@ -139,7 +118,7 @@ SpendWise/
 
 ---
 
-## 6. Steps to Install & Run
+## 5. Steps to Install & Run
 
 **Requirements:** JDK 17 or newer (no other dependencies).
 
@@ -157,6 +136,25 @@ javac -d bin src\main\java\com\spendwise\Main.java src\main\java\com\spendwise\m
 # 4. Run
 java -cp bin com.spendwise.Main
 ```
+---
+
+## 6. Instructions for Testing
+
+There is no separate automated test framework, but the application was verified with
+a full manual test pass covering every menu option for the exact inputs, expected results, and actual results.
+
+To run the scenario yourself:
+
+```bash
+javac -d bin $(find src -name "*.java")
+java -cp bin com.spendwise.Main < test-results/sample-session-input.txt
+```
+
+This replays: adding income & 8 expenses across different categories,
+setting 5 category budgets, checking utilization (including a
+triggered warning), adding 4 subscriptions with different billing
+cycles, and viewing every report.
+
 ---
 
 ## 7. Screenshots
