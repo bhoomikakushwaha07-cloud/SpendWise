@@ -170,7 +170,7 @@ your data is safe even if the program is closed without an explicit
 
 **Financial Reports — spending by category & monthly outlook:**
 
-![Reports module](docs/screenshots/reports_module.png)
+![Reports module](docs/screenshots/budget_module.png)
 
 ---
 
