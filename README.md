@@ -162,29 +162,7 @@ your data is safe even if the program is closed without an explicit
 
 ---
 
-## 7. Instructions for Testing
-
-There is no separate automated test framework (kept out deliberately
-to stay within course scope), but the application was verified with
-a full manual test pass covering every menu option — see
-[`test-results/manual-test-log.md`](test-results/manual-test-log.md)
-for the exact inputs, expected results, and actual results.
-
-To re-run the same scenario yourself:
-
-```bash
-javac -d bin $(find src -name "*.java")
-java -cp bin com.spendwise.Main < test-results/sample-session-input.txt
-```
-
-This replays: adding income & 8 expenses across different categories,
-setting 5 category budgets, checking utilization (including a
-triggered warning), adding 4 subscriptions with different billing
-cycles, and viewing every report.
-
----
-
-## 8. Screenshots
+## 7. Screenshots
 
 **Budget Management — utilization warnings at ≥ 80%:**
 
@@ -196,7 +174,7 @@ cycles, and viewing every report.
 
 ---
 
-## 10. Known Simplifications 
+## 8. Known Simplifications 
 
 - Amounts are stored as `double`, not `BigDecimal` — acceptable at
   this scale, called out as a future enhancement.
@@ -206,7 +184,7 @@ cycles, and viewing every report.
 - Category names are free text (e.g. "Food" vs "food") — the app
   normalises case only for lookups, not for display.
 
-## 11. Future Enhancements
+## 9. Future Enhancements
 
 - Switch `double` to `BigDecimal` for exact currency arithmetic.
 - Add JUnit test suite for the service layer.
