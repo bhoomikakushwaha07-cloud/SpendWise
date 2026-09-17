@@ -47,5 +47,3 @@ spreadsheet template or a mobile app that asks for bank access.
    combined activity feed of transactions and subscriptions, and an
    overall monthly financial outlook.
 
-All data persists automatically to CSV files in the `data/` folder,
-so nothing is lost between runs.
