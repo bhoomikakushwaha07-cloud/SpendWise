@@ -166,7 +166,7 @@ your data is safe even if the program is closed without an explicit
 
 **Budget Management — utilization warnings at ≥ 80%:**
 
-![Budget module]
+![Budget module](docs/screenshots/budget_module.png)
 
 **Financial Reports — spending by category & monthly outlook:**
 
