@@ -1,0 +1,55 @@
+digraph Workflow {
+    rankdir=TB;
+    fontname="Helvetica";
+    node [fontname="Helvetica", shape=box, style="rounded,filled", fillcolor="#eef5fc", color="#5b8dbb"];
+    edge [fontname="Helvetica", fontsize=10];
+
+    start [label="Start SpendWise", shape=ellipse, fillcolor="#bcdcf4"];
+    load [label="Load transactions.csv, budgets.csv,\nsubscriptions.csv into memory"];
+    menu [label="Show Main Menu", fillcolor="#dbe9f6"];
+    choice [label="User Choice?", shape=diamond, fillcolor="#f9e8ba"];
+
+    txn [label="Transaction Management\n(add / view / search / sort / delete)"];
+    valid1 [label="Input valid?", shape=diamond, fillcolor="#f9e8ba"];
+    err1 [label="Show validation error\n(InvalidInputException)", fillcolor="#f4cccc"];
+    save1 [label="Update in-memory list +\nrewrite transactions.csv", fillcolor="#b9e6a4"];
+
+    bud [label="Budget Management\n(set / check utilization)"];
+    calc [label="Fetch category spending\nfrom TransactionService"];
+    pct [label="% used vs limit?", shape=diamond, fillcolor="#f9e8ba"];
+    alert [label="ALERT: Budget exceeded", fillcolor="#f0b8b8"];
+    warn [label="WARNING: Approaching limit\n(>= 80%)", fillcolor="#fbe8b0"];
+    ok [label="Within budget", fillcolor="#b9e6a4"];
+
+    sub [label="Subscription Management\n(add / cancel / delete)"];
+    save2 [label="Update in-memory list +\nrewrite subscriptions.csv", fillcolor="#b9e6a4"];
+
+    rep [label="Financial Reports"];
+    aggregate [label="Aggregate transactions, budgets\nand subscriptions"];
+    out [label="Print spending-by-category,\ncombined feed, monthly outlook"];
+
+    exit [label="Exit SpendWise", shape=ellipse, fillcolor="#bcdcf4"];
+
+    start -> load -> menu -> choice;
+    choice -> txn [label="1"];
+    choice -> bud [label="2"];
+    choice -> sub [label="3"];
+    choice -> rep [label="4"];
+    choice -> exit [label="0"];
+
+    txn -> valid1;
+    valid1 -> err1 [label="No"];
+    err1 -> txn;
+    valid1 -> save1 [label="Yes"];
+    save1 -> menu;
+
+    bud -> calc -> pct;
+    pct -> alert [label=">= 100%"];
+    pct -> warn [label=">= 80%"];
+    pct -> ok [label="< 80%"];
+    alert -> menu; warn -> menu; ok -> menu;
+
+    sub -> save2 -> menu;
+
+    rep -> aggregate -> out -> menu;
+}
