@@ -163,11 +163,11 @@ java -cp bin com.spendwise.Main
 
 **Budget Management — utilization warnings at ≥ 80%:**
 
-![Budget module](docs/screenshots/budget_module.png)
+![Budget module](SpendWise/docs/screenshots/Budget_module.png)
 
 **Financial Reports — spending by category & monthly outlook:**
 
-![Reports module](docs/screenshots/reports_module.png)
+![Reports module](SpendWisedocs/screenshots/Reports_module.png)
 
 ---
 
