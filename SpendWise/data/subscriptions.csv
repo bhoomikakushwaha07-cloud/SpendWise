@@ -1,0 +1,9 @@
+id,name,amount,billingCycle,category,startDate,active
+S0001,Netflix,199.0,MONTHLY,Entertainment,2026-09-01,true
+S0002,Spotify,119.0,MONTHLY,Entertainment,2026-09-01,true
+S0003,Amazon Prime,1499.0,YEARLY,Entertainment,2026-01-15,true
+S0004,Gym Membership,1200.0,MONTHLY,Health,2026-08-01,true
+S0005,Netflix,199.0,MONTHLY,Entertainment,2026-09-01,true
+S0006,Spotify,119.0,MONTHLY,Entertainment,2026-09-01,true
+S0007,Amazon Prime,1499.0,YEARLY,Entertainment,2026-01-15,true
+S0008,Gym Membership,1200.0,MONTHLY,Health,2026-08-01,true
