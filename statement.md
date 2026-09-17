@@ -14,18 +14,6 @@ subscriptions together.
 SpendWise is a **console-based personal finance and subscription
 manager** built in core Java. It covers:
 
-- Recording and managing income/expense transactions
-- Setting and monitoring category-wise monthly budgets
-- Tracking recurring subscriptions across different billing cycles
-  and calculating their true monthly/yearly cost
-- Generating financial reports that combine all of the above
-
-It deliberately stays out of scope for:
-- Multi-user support or authentication
-- Bank/API integrations, payment gateways, or real transactions
-- A GUI or web interface (this is a CLI tool)
-- A relational database (plain CSV files are used instead)
-
 ## Target Users
 
 Students, young professionals, or anyone managing personal finances
