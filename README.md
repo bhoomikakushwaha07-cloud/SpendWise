@@ -157,12 +157,6 @@ javac -d bin src\main\java\com\spendwise\Main.java src\main\java\com\spendwise\m
 # 4. Run
 java -cp bin com.spendwise.Main
 ```
-
-On first run, SpendWise creates an empty `data/` folder with three CSV
-files. Every add/delete immediately rewrites the relevant CSV file, so
-your data is safe even if the program is closed without an explicit
-"save" step.
-
 ---
 
 ## 7. Screenshots
@@ -177,18 +171,7 @@ your data is safe even if the program is closed without an explicit
 
 ---
 
-
-## 8. Known Simplifications (by design, for a beginner-friendly scope)
-
-- Amounts are stored as `double`, not `BigDecimal` — acceptable at
-  this scale, called out as a future enhancement.
-- No authentication — this is a single-user local tool.
-- No automated unit-test framework (e.g. JUnit) — validated instead
-  with a documented manual test log covering every feature.
-- Category names are free text (e.g. "Food" vs "food") — the app
-  normalises case only for lookups, not for display.
-
-## 9. Future Enhancements
+## 8. Future Enhancements
 
 - Switch `double` to `BigDecimal` for exact currency arithmetic.
 - Add JUnit test suite for the service layer.
