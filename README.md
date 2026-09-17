@@ -145,13 +145,16 @@ SpendWise/
 
 ```bash
 # 1. Clone the repository
-git clone <your-repo-url>
+git clone <https://github.com/bhoomikakushwaha07-cloud/SpendWise.git>
 cd SpendWise
 
-# 2. Compile
-javac -d bin $(find src -name "*.java")
+# 2. Create a bin folder
+mkdir bin
 
-# 3. Run
+# 3. Compile
+javac -d bin src\main\java\com\spendwise\Main.java src\main\java\com\spendwise\model\*.java src\main\java\com\spendwise\service\*.java src\main\java\com\spendwise\storage\*.java src\main\java\com\spendwise\util\*.java src\main\java\com\spendwise\exception\*.java
+
+# 4. Run
 java -cp bin com.spendwise.Main
 ```
 
