@@ -133,7 +133,6 @@ SpendWise/
 │   └── subscriptions.csv
 ├── docs/
 │   └── screenshots/
-├── test-results/                     # manual test log (see below)
 ├── README.md
 └── statement.md
 ```
@@ -166,7 +165,7 @@ your data is safe even if the program is closed without an explicit
 
 **Budget Management — utilization warnings at ≥ 80%:**
 
-![Budget module](docs/screenshots/budget_module.png)
+![Budget module]
 
 **Financial Reports — spending by category & monthly outlook:**
 
