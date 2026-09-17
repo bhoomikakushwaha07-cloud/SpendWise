@@ -1,0 +1,55 @@
+digraph ClassDiagram {
+    rankdir=BT;
+    fontname="Helvetica";
+    node [fontname="Helvetica", shape=record, style=filled, fillcolor="#f5f5f5"];
+    edge [fontname="Helvetica", fontsize=9];
+
+    FinancialRecord [fillcolor="#f7dfa1", label="{«abstract»\nFinancialRecord|- id : String\l- amount : double\l- date : LocalDate\l- description : String\l|+ getMonthlyImpact() : double\l+ getRecordType() : String\l}"];
+
+    Reportable [fillcolor="#f7dfa1", label="{«interface»\nReportable||+ getSummaryLine() : String\l}"];
+
+    Transaction [fillcolor="#bcdcf4", label="{Transaction|- type : TransactionType\l- category : String\l|+ getMonthlyImpact() : double\l+ getSummaryLine() : String\l}"];
+
+    Subscription [fillcolor="#bcdcf4", label="{Subscription|- name : String\l- billingCycle : BillingCycle\l- category : String\l- active : boolean\l|+ getMonthlyImpact() : double\l+ getYearlyImpact() : double\l+ getSummaryLine() : String\l}"];
+
+    Budget [fillcolor="#bcdcf4", label="{Budget|- category : String\l- limitAmount : double\l|+ getLimitAmount() : double\l}"];
+
+    TransactionType [fillcolor="#f9e8ba", label="{«enum»\nTransactionType|INCOME\lEXPENSE\l}"];
+    BillingCycle [fillcolor="#f9e8ba", label="{«enum»\nBillingCycle|WEEKLY\lMONTHLY\lQUARTERLY\lYEARLY\l}"];
+
+    TransactionService [fillcolor="#b9e6a4", label="{TransactionService|- transactions : List~Transaction~\l- idGenerator : IdGenerator\l|+ addTransaction(...) : Transaction\l+ search(keyword) : List\l+ deleteById(id)\l+ getTotalIncome() : double\l+ getTotalExpense() : double\l+ getSpendingForCategory(cat) : double\l}"];
+
+    BudgetService [fillcolor="#b9e6a4", label="{BudgetService|- budgets : Map~String,Budget~\l|+ setBudget(cat, limit) : Budget\l+ checkUtilization(cat) : BudgetStatus\l+ checkAllUtilization() : List\l}"];
+
+    SubscriptionService [fillcolor="#b9e6a4", label="{SubscriptionService|- subscriptions : List~Subscription~\l|+ addSubscription(...) : Subscription\l+ getTotalMonthlyCost() : double\l+ getTotalYearlyCost() : double\l}"];
+
+    ReportService [fillcolor="#b9e6a4", label="{ReportService||+ spendingByCategory() : Map\l+ combinedActivityFeed() : List~Reportable~\l+ getOverallMonthlyOutlook() : double\l}"];
+
+    CSVFileHandler [fillcolor="#f0b8b8", label="{CSVFileHandler||+ readAll(path, hasHeader) : List\l+ writeAll(path, header, rows)\l}"];
+    TransactionStorage [fillcolor="#f4cccc", label="{TransactionStorage||+ loadAll() : List~Transaction~\l+ saveAll(list)\l}"];
+    BudgetStorage [fillcolor="#f4cccc", label="{BudgetStorage||+ loadAll() : Map\l+ saveAll(map)\l}"];
+    SubscriptionStorage [fillcolor="#f4cccc", label="{SubscriptionStorage||+ loadAll() : List~Subscription~\l+ saveAll(list)\l}"];
+
+    Transaction -> FinancialRecord [arrowhead=empty, style=solid, label="extends"];
+    Subscription -> FinancialRecord [arrowhead=empty, style=solid, label="extends"];
+    Transaction -> Reportable [arrowhead=empty, style=dashed, label="implements"];
+    Subscription -> Reportable [arrowhead=empty, style=dashed, label="implements"];
+    Transaction -> TransactionType [arrowhead=vee, style=solid, label="uses"];
+    Subscription -> BillingCycle [arrowhead=vee, style=solid, label="uses"];
+
+    TransactionService -> Transaction [arrowhead=diamond, label="manages *"];
+    TransactionService -> TransactionStorage [arrowhead=vee, label="uses"];
+    BudgetService -> Budget [arrowhead=diamond, label="manages *"];
+    BudgetService -> BudgetStorage [arrowhead=vee, label="uses"];
+    BudgetService -> TransactionService [arrowhead=vee, style=dashed, label="depends on"];
+    SubscriptionService -> Subscription [arrowhead=diamond, label="manages *"];
+    SubscriptionService -> SubscriptionStorage [arrowhead=vee, label="uses"];
+
+    ReportService -> TransactionService [arrowhead=vee, style=dashed, label="reads"];
+    ReportService -> BudgetService [arrowhead=vee, style=dashed, label="reads"];
+    ReportService -> SubscriptionService [arrowhead=vee, style=dashed, label="reads"];
+
+    TransactionStorage -> CSVFileHandler [arrowhead=vee, label="uses"];
+    BudgetStorage -> CSVFileHandler [arrowhead=vee, label="uses"];
+    SubscriptionStorage -> CSVFileHandler [arrowhead=vee, label="uses"];
+}
